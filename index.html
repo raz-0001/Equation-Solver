@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Linear Equation Solver</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+QLD+Beginner:wght@700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <style>
+        .neo{
+            display:flex;
+            align-content: center;
+            justify-content: center;
+            
+        }
+        
+        input{
+            width: 20vw;
+        }
+
+        .footer {
+        position: fixed;
+        bottom: 0px;
+        width: 100%;
+        }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar bg-dark">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            <img src="logo.jpg" alt="" width="100" height="100">
+          </a>
+        <h1 class="text-warning" style="font-family: 'Edu QLD Beginner', cursive;">Linear Equation Solver</h1>
+        <a href="quad.html" class="navbar-brand">
+            <button type="button" class="btn btn-warning">Quadratic Equation Solver</button>
+        </a>
+      </nav>
+      <br>
+      <div class="neo container">
+        <input type="text" id="x1">x+<input type="numeric" id="y1">y=<input type="numeric" id="v1">
+      </div>
+      <br>
+      <div class="neo container">
+        <input type="numeric" id="x2">x+<input type="numeric" id="y2">y=<input type="numeric" id="v2">
+      </div>
+      <br>
+      <div class="neo container">
+        <button type="button" onclick="find(this)" class="btn btn-success mx-4">Submit</button>
+        <button type="button" onclick="clr(this)" class="btn btn-warning mx-4">Clear</button>
+      </div>
+      <br>
+      <h3 class="neo container">The value of x is:&nbsp;<span id="ans1" class="badge bg-secondary">0</span></h3>
+      <h3 class="neo container">The value of y is:&nbsp;<span id="ans2" class="badge bg-secondary">0</span></h3>
+
+      <footer>
+        <div class="text-bg-dark p-3 neo footer">Made with Love ❤ by Raz<img src="R logo.png" width="30px" height="30px"></div>
+      </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script>
+        let x1=document.getElementById("x1");
+        let x2=document.getElementById("x2");
+        let y1=document.getElementById("y1");
+        let y2=document.getElementById("y2");
+        let v1=document.getElementById("v1");
+        let v2=document.getElementById("v2");
+
+        let ans1=document.getElementById("ans1");
+        let ans2=document.getElementById("ans2");
+        
+        function find(e){
+        
+            let d=(x1.value*y2.value)-(y1.value*x2.value);
+            let nx=(y1.value*(-1*v2.value))-((-1*v1.value)*y2.value);
+            let ny=(x1.value*(-1*v2.value))-((-1*v1.value)*x2.value);
+
+            ans1.innerText=nx/d;
+            ans2.innerText=(-1*ny/d);
+        }
+        function clr(e){
+            x1.value=x2.value=y1.value=y2.value=v1.value=v2.value=0;
+            ans1.innerText=0;
+            ans2.innerText=0;
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quadratic Equation Solver</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+QLD+Beginner:wght@700&family=Lobster&display=swap" rel="stylesheet">
+
+    <style>
+    .neo{
+        display:flex;
+        align-content: center;
+        justify-content: center;
+        
+    }
+    
+    input{
+        width: 20vw;
+    }
+
+    .footer {
+        position: fixed;
+        bottom: 0px;
+        width: 100%;
+        }
+    </style>
+ </head>
+  <body>
+    <nav class="navbar bg-light">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            <img src="logo2.jpg" alt="" width="100" height="100">
+          </a>
+        <h1 class="text-primary" style="font-family: 'Edu QLD Beginner', cursive;
+        font-family: 'Lobster', cursive;">Quadratic Equation Solver</h1>
+        <a href="index.html" class="navbar-brand">
+            <button type="button" class="btn btn-warning">Linear Equation Solver</button>
+        </a>
+      </nav>
+      <br>
+      <div class="neo container">
+        <input type="numeric" id="a">x<sup>2</sup>+<input type="numeric" id="b">x+<input type="numeric" id="c">=0
+      </div>
+      <br>
+      <div class="neo container">
+        <button type="button" onclick="find(this)" class="btn btn-success mx-4">Submit</button>
+        <button type="button" onclick="clr(this)" class="btn btn-warning mx-4">Clear</button>
+      </div>
+      <br>
+      <br>
+      <h3 class="neo container">First root of x is :&nbsp;<span id="ans1" class="badge bg-secondary">0</span></h3>
+      <br>
+      <h3 class="neo container">Second root of x is :&nbsp;<span id="ans2" class="badge bg-secondary">0</span></h3>
+      <footer>
+        <div class="text-bg-dark p-3 neo footer">Made with Love ❤ by Raz<img src="R logo.png" width="30px" height="30px"></div>
+      </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script>
+        let a=document.getElementById("a");
+        let b=document.getElementById("b");
+        let c=document.getElementById("c");
+        let ans1=document.getElementById("ans1");
+        let ans2=document.getElementById("ans2");
+        let m=Math;
+        function find(e){
+            let d=m.pow(b.value,2)-(4*a.value*c.value);
+                if(d<0){
+                    d=(-1*d);
+                    ans1.innerText=`${-1*b.value/(2*a.value)}+${d/(2*a.value)}i`;
+                    ans2.innerText=`${-1*b.value/(2*a.value)}-${d/(2*a.value)}i`;
+                }
+                else{
+                    d=m.sqrt(d);
+                    ans1.innerText=((-1*b.value)+d)/(2*a.value);
+                    ans2.innerText=((-1*b.value)-d)/(2*a.value);
+                }          
+        }
+        function clr(e){
+            a.value=b.value=c.value=0;
+            ans1.innerText=0;
+            ans2.innerText=0;
+        }
+    </script>
+  </body>
+</html>
