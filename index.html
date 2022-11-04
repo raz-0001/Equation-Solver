@@ -81,8 +81,8 @@
             let nx=(y1.value*(-1*v2.value))-((-1*v1.value)*y2.value);
             let ny=(x1.value*(-1*v2.value))-((-1*v1.value)*x2.value);
 
-            ans1.innerText=nx/d;
-            ans2.innerText=(-1*ny/d);
+            ans1.innerText=(nx/d).toFixed(2);
+            ans2.innerText=((-1*ny/d)).toFixed(2);
         }
         function clr(e){
             x1.value=x2.value=y1.value=y2.value=v1.value=v2.value=0;

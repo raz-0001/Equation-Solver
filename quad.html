@@ -69,13 +69,13 @@
             let d=m.pow(b.value,2)-(4*a.value*c.value);
                 if(d<0){
                     d=(-1*d);
-                    ans1.innerText=`${-1*b.value/(2*a.value)}+${d/(2*a.value)}i`;
-                    ans2.innerText=`${-1*b.value/(2*a.value)}-${d/(2*a.value)}i`;
+                    ans1.innerText=`${(-1*b.value/(2*a.value)).toFixed(2)}+${(d/(2*a.value)).toFixed(2)}i`;
+                    ans2.innerText=`${(-1*b.value/(2*a.value)).toFixed(2)}-${(d/(2*a.value)).toFixed(2)}i`;
                 }
                 else{
                     d=m.sqrt(d);
-                    ans1.innerText=((-1*b.value)+d)/(2*a.value);
-                    ans2.innerText=((-1*b.value)-d)/(2*a.value);
+                    ans1.innerText=(((-1*b.value)+d)/(2*a.value)).toFixed(2);
+                    ans2.innerText=(((-1*b.value)-d)/(2*a.value)).toFixed(2);
                 }          
         }
         function clr(e){
